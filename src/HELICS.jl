@@ -39,6 +39,9 @@ module Lib
 
 end
 
+const HELICS_LIBRARY_VERSION = VersionNumber(split(Lib.HELICS_VERSION_STRING)[1])
+const HELICS_PACKAGE_VERSION = VersionNumber(match(r"version\s*=\s*\"(.+)\"", read(joinpath(@__DIR__, "..", "Project.toml"), String)).captures[1])
+
 include("wrapper.jl")
 
 include("utils.jl")
